@@ -1,0 +1,63 @@
+{
+    "name": "yezzmedia/laravel-dashboard",
+    "version": "0.1.0",
+    "description": "Dashboard layer for the Yezz Media Laravel website platform. Provides a unified shell with navbar, sidebar, and bottom-bar above the User Center.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yezz Media",
+            "email": "info@yezzmedia.com"
+        }
+    ],
+    "require": {
+        "php": "^8.5",
+        "filament/filament": "^5.0",
+        "illuminate/contracts": "^13.0",
+        "illuminate/support": "^13.0",
+        "spatie/laravel-package-tools": "^1.93",
+        "yezzmedia/laravel-foundation": "^0.1"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.29",
+        "livewire/livewire": "^4.1",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0"
+    },
+    "suggest": {
+        "yezzmedia/laravel-account": "Account integration — registers dashboard navigation items for key user-facing pages."
+    },
+    "autoload": {
+        "psr-4": {
+            "YezzMedia\\Dashboard\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=1G",
+        "format": "vendor/bin/pint --format agent"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "YezzMedia\\Dashboard\\DashboardServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
