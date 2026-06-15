@@ -12,6 +12,11 @@ abstract class DashboardPage extends Page
 {
     protected static string $layout = 'dashboard::layouts.dashboard';
 
+    protected function translate(string $key, string $fallback): string
+    {
+        return trans()->has($key) ? __($key) : $fallback;
+    }
+
     protected function initials(Authenticatable $user): string
     {
         $name = $user->name ?? $user->email ?? 'U';
@@ -45,6 +50,7 @@ abstract class DashboardPage extends Page
         }
 
         return [
+            'pageTitle' => $this->getTitle(),
             'navigationGroups' => $registry->groups(),
             'profileSummary' => $profileSummary,
         ];

@@ -7,10 +7,10 @@
     {{-- Welcome header --}}
     <div class="rounded-xl border border-gray-200/80 bg-white/50 p-6 backdrop-blur-sm dark:border-gray-800/80 dark:bg-gray-900/50 sm:p-8">
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
-            Welcome back, {{ $profileSummary['name'] ?? 'User' }}
+            {{ __('dashboard::dashboard.welcome_back', ['name' => $profileSummary['name'] ?? 'User']) }}
         </h1>
         <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-            Manage your account, security, and preferences from your control center.
+            {{ __('dashboard::dashboard.pages.dashboard.description') }}
         </p>
     </div>
 
@@ -21,7 +21,7 @@
     @if ($visibleItems->isNotEmpty())
         <div>
             <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
-                Quick access
+                {{ __('dashboard::dashboard.sections.quick_access') }}
             </h2>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($visibleItems as $item)
@@ -49,7 +49,7 @@
     @if (filled($widgets ?? null))
         <div>
             <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
-                Insights
+                {{ __('dashboard::dashboard.sections.insights') }}
             </h2>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($widgets as $widget)

@@ -10,7 +10,18 @@ final class Dashboard extends DashboardPage
 
     public static function canAccess(): bool
     {
-        return auth(config('dashboard.panel.guard', 'web'))->check();
+        $guard = auth(config('dashboard.panel.guard', 'web'));
+
+        if (! $guard->check()) {
+            return false;
+        }
+
+        return $guard->user()->can('dashboard.access');
+    }
+
+    public function getTitle(): string
+    {
+        return $this->translate('dashboard::dashboard.pages.dashboard.title', 'Dashboard');
     }
 
     /**
@@ -19,6 +30,7 @@ final class Dashboard extends DashboardPage
     protected function getViewData(): array
     {
         return [
+            'pageDescription' => $this->translate('dashboard::dashboard.pages.dashboard.description', 'Manage your account, security, and preferences from your control center.'),
             'widgets' => config('dashboard.widgets', []),
         ];
     }

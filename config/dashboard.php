@@ -14,6 +14,8 @@ return [
         'name' => env('DASHBOARD_BRAND_NAME', 'Dashboard'),
         'logo' => env('DASHBOARD_BRAND_LOGO'),
         'icon' => 'grid',
+        'gradient' => env('DASHBOARD_BRAND_GRADIENT', 'linear-gradient(135deg, #10b981, #14b8a6, #0891b2)'),
+        'avatar_gradient' => env('DASHBOARD_BRAND_AVATAR_GRADIENT', 'linear-gradient(135deg, #059669, #0f766e)'),
     ],
 
     'navigation' => [

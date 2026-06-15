@@ -16,11 +16,13 @@ final class HubExtensionRegistry
     /**
      * @param  class-string<Plugin>  $pluginClass
      */
-    public function register(string $pluginClass): void
+    public function register(string $pluginClass): static
     {
         $this->ensureNotSealed();
 
         $this->pluginClasses[] = $pluginClass;
+
+        return $this;
     }
 
     /**

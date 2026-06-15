@@ -21,7 +21,7 @@
         @endif
 
         <title>
-            {{ $pageTitle ?? 'Dashboard' }}
+            {{ $pageTitle ?? __('dashboard::dashboard.pages.dashboard.title') }}
             @if (filled($pageTitle ?? null) && filled(filament()->getBrandName()))
                 -
             @endif
@@ -158,7 +158,7 @@
                                 <rect x="10.5" y="10.5" width="3" height="6" rx="0.8"/>
                                 <rect x="15" y="11.5" width="3" height="5" rx="0.8"/>
                             </svg>
-                            Dashboard
+                            {{ __('dashboard::dashboard.nav.dashboard') }}
                         </a>
                     </div>
                 </aside>
@@ -177,7 +177,7 @@
                 >
                     <div class="flex h-16 items-center justify-between border-b border-gray-200 px-4 dark:border-gray-800">
                         <span class="text-sm font-semibold text-gray-900 dark:text-white">{{ config('dashboard.brand.name', 'Dashboard') }}</span>
-                        <button type="button" @click="mobileMenuOpen = false" aria-label="Close menu" class="rounded-lg p-1.5 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <button type="button" @click="mobileMenuOpen = false" aria-label="{{ __('dashboard::dashboard.nav.close_menu') }}" class="rounded-lg p-1.5 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800">
                             <x-filament::icon icon="heroicon-c-x-mark" class="h-5 w-5" />
                         </button>
                     </div>

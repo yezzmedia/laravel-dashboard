@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace YezzMedia\Dashboard;
 
+use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use YezzMedia\Dashboard\Navigation\DashboardNavigationRegistry;
@@ -18,6 +19,7 @@ class DashboardServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-dashboard')
             ->hasConfigFile('dashboard')
+            ->hasTranslations()
             ->hasViews()
             ->hasRoute('web');
     }
@@ -35,6 +37,8 @@ class DashboardServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
+        Gate::define('dashboard.access', fn ($user) => true);
+
         $this->app->make(PlatformPackageRegistrar::class)
             ->register(new DashboardPlatformPackage);
 
