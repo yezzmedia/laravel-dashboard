@@ -27,16 +27,8 @@ return [
     'widgets' => [],
 
     'legal' => [
-        'left' => [
-            ['label' => 'Help', 'url' => '#'],
-            ['label' => 'Cookie Settings', 'url' => '#'],
-            ['label' => 'Contact', 'url' => '#'],
-        ],
-        'right' => [
-            ['label' => 'Privacy Policy', 'url' => '#'],
-            ['label' => 'Terms of Service', 'url' => 'https://example.com/terms'],
-            ['label' => 'Impressum', 'url' => 'https://example.com/imprint'],
-        ],
+        'left' => [],
+        'right' => [],
     ],
 
 ];
