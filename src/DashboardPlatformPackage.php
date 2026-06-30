@@ -5,15 +5,18 @@ declare(strict_types=1);
 namespace YezzMedia\Dashboard;
 
 use YezzMedia\Foundation\Contracts\DefinesAuditEvents;
+use YezzMedia\Foundation\Contracts\DefinesInstallSteps;
 use YezzMedia\Foundation\Contracts\DefinesPermissions;
 use YezzMedia\Foundation\Contracts\PlatformPackage;
 use YezzMedia\Foundation\Contracts\RegistersFeatures;
+use YezzMedia\Dashboard\Install\EnsureAppCssHasDarkVariantInstallStep;
+use YezzMedia\Dashboard\Install\EnsureFilamentPanelHasDefaultInstallStep;
 use YezzMedia\Foundation\Data\AuditEventDefinition;
 use YezzMedia\Foundation\Data\FeatureDefinition;
 use YezzMedia\Foundation\Data\PackageMetadata;
 use YezzMedia\Foundation\Data\PermissionDefinition;
 
-final class DashboardPlatformPackage implements DefinesAuditEvents, DefinesPermissions, PlatformPackage, RegistersFeatures
+final class DashboardPlatformPackage implements DefinesAuditEvents, DefinesInstallSteps, DefinesPermissions, PlatformPackage, RegistersFeatures
 {
     public function metadata(): PackageMetadata
     {
@@ -58,6 +61,17 @@ final class DashboardPlatformPackage implements DefinesAuditEvents, DefinesPermi
                 label: 'Dashboard hub',
                 description: 'Provides the dashboard hub shell with navigation, sidebar, and shared layout.',
             ),
+        ];
+    }
+
+    /**
+     * @return array<int, \YezzMedia\Foundation\Install\InstallStep>
+     */
+    public function installSteps(): array
+    {
+        return [
+            app(EnsureAppCssHasDarkVariantInstallStep::class),
+            app(EnsureFilamentPanelHasDefaultInstallStep::class),
         ];
     }
 
