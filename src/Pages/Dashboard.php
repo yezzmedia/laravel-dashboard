@@ -32,6 +32,7 @@ final class Dashboard extends DashboardPage
         return [
             'pageDescription' => $this->translate('dashboard::dashboard.pages.dashboard.description', 'Manage your account, security, and preferences from your control center.'),
             'widgets' => config('dashboard.widgets', []),
+            'navigationGroups' => $this->getLayoutData()['navigationGroups'] ?? [],
         ];
     }
 }
