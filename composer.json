@@ -1,6 +1,6 @@
 {
     "name": "yezzmedia/laravel-dashboard",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Dashboard layer for the Yezz Media Laravel website platform. Provides a unified shell with navbar, sidebar, and bottom-bar above the User Center.",
     "type": "library",
     "license": "MIT",
